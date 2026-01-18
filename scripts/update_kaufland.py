@@ -2,7 +2,8 @@ import requests
 import json
 from datetime import datetime
 
-URL = "https://www.kaufland.bg/.rest/search"
+URL = "https://silent-resonance-db8bpromo-proxy.kaloqnpanchev.workers.dev/kaufland"
+
 
 headers = {
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)",
