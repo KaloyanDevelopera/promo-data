@@ -1,0 +1,33 @@
+name: Update Kaufland promotions
+
+on:
+  schedule:
+    - cron: "0 6 * * *"   # всеки ден в 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run updater
+        run: python scripts/update_kaufland.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "promo-bot"
+          git config user.email "bot@promo.local"
+          git add kaufland.json
+          git commit -m "Auto update Kaufland promos" || echo "No changes"
+          git push
