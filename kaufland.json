@@ -1,0 +1,37 @@
+{
+  "updatedAt": "2026-01-18",
+  "store": "Kaufland",
+  "currency": "EUR",
+  "categories": {
+    "fruits_vegetables": [
+      {
+        "id": "k-fv-001",
+        "name": "Bananas",
+        "price": 1.19,
+        "oldPrice": 1.69,
+        "image": "https://images.unsplash.com/photo-1574226516831-e1dff420e42e",
+        "validTo": "2026-01-20"
+      }
+    ],
+    "dairy": [
+      {
+        "id": "k-d-001",
+        "name": "Milk 1L",
+        "price": 0.99,
+        "oldPrice": 1.29,
+        "image": "https://images.unsplash.com/photo-1585238342028-4bbc9c34b1a4",
+        "validTo": "2026-01-22"
+      }
+    ],
+    "meat": [
+      {
+        "id": "k-m-001",
+        "name": "Chicken breast",
+        "price": 6.99,
+        "oldPrice": 8.99,
+        "image": "https://images.unsplash.com/photo-1604908554268-4a3e5c9d1c0a",
+        "validTo": "2026-01-21"
+      }
+    ]
+  }
+}
