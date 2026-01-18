@@ -4,7 +4,17 @@ from datetime import datetime
 
 URL = "https://www.kaufland.bg/.rest/promotions"
 
-resp = requests.get(URL)
+headers = {
+    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)",
+    "Accept": "application/json"
+}
+
+resp = requests.get(URL, headers=headers, timeout=30)
+
+# ако не е 200 – спираме
+if resp.status_code != 200:
+    raise Exception(f"Kaufland API error: {resp.status_code}")
+
 data = resp.json()
 
 products = []
@@ -24,7 +34,7 @@ for p in data.get("items", []):
             "price": new,
             "oldPrice": old,
             "discount": discount,
-            "image": p["image"],
+            "image": p.get("image"),
             "validTo": p.get("validTo")
         })
 
@@ -39,4 +49,5 @@ result = {
 }
 
 with open("kaufland.json", "w") as f:
-    json.dump(result, f, indent=2)
+    json.dump(result, f, indent=2, ensure_ascii=False)
+
